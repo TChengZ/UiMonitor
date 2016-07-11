@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "jc.com.uimonitor"
+        applicationId "uimonitor.jc.com"
         minSdkVersion 14
         targetSdkVersion 23
         versionCode 1

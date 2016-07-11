@@ -9,7 +9,7 @@
         android:text="uiMonitor"
         />
     <Button
-        android:id="@+id/btn_click"
+        android:id="@+id/btn_sleep"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="sleep"

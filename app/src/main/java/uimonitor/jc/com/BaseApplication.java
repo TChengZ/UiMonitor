@@ -1,4 +1,4 @@
-package jc.com.uimonitor;
+package uimonitor.jc.com;
 
 import android.app.Application;
 

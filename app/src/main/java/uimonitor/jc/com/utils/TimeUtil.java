@@ -1,4 +1,4 @@
-package jc.com.uimonitor.utils;
+package uimonitor.jc.com.utils;
 
 import java.util.Calendar;
 

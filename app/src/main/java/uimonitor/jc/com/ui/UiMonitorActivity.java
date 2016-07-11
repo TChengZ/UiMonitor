@@ -1,9 +1,9 @@
-package jc.com.uimonitor.ui;
+package uimonitor.jc.com.ui;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -11,12 +11,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import jc.com.uimonitor.R;
-import jc.com.uimonitor.flow.UiMonitor;
-import jc.com.uimonitor.utils.Constant;
+import uimonitor.jc.com.R;
+import uimonitor.jc.com.flow.UiMonitor;
+import uimonitor.jc.com.utils.Constant;
 
 @SuppressWarnings("HardCodedStringLiteral")
-public class UiMonitorActivity extends Activity implements View.OnClickListener{
+public class UiMonitorActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button mBtnMonitor = null;
     private EditText mEtTime = null;

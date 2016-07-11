@@ -1,4 +1,4 @@
-package jc.com.uimonitor.flow;
+package uimonitor.jc.com.flow;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -11,10 +11,10 @@ import android.util.Log;
 import android.util.Printer;
 import android.widget.Toast;
 
-import jc.com.uimonitor.BaseApplication;
-import jc.com.uimonitor.utils.Constant;
-import jc.com.uimonitor.utils.FileUtil;
-import jc.com.uimonitor.utils.TimeUtil;
+import uimonitor.jc.com.BaseApplication;
+import uimonitor.jc.com.utils.Constant;
+import uimonitor.jc.com.utils.FileUtil;
+import uimonitor.jc.com.utils.TimeUtil;
 
 /**
  * Ui卡顿检测业务类
