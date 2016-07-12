@@ -13,7 +13,6 @@ public class MonitorActivity extends AppCompatActivity implements View.OnClickLi
     private Button mBtnUiMonitor;
     private Button mBtnSleep;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

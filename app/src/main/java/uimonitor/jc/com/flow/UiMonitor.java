@@ -27,7 +27,7 @@ public class UiMonitor implements Printer {
     public final static int DEFAULT_MONITOR_TEST_TIME = 200;
     public final static int MAX_MONITOR_TEST_TIME = 1000; //最大检测时间
 
-    private boolean isStartLogPrint = false;
+    private boolean isStartLogPrint = true;
     private String mUIDelayContent = null;
 
     private volatile Handler mMonitorHandler;
@@ -40,9 +40,6 @@ public class UiMonitor implements Printer {
         @Override
         public void run() {
             StackTraceElement[] arrTrace = Looper.getMainLooper().getThread().getStackTrace();
-            if(isLoopQueueTime(arrTrace)){
-                return;
-            }
             StringBuffer sb = new StringBuffer();
             for (int i = 0;i < arrTrace.length; i++) {
                 StackTraceElement ele = arrTrace[i];
@@ -81,18 +78,6 @@ public class UiMonitor implements Printer {
         }
     }
 
-    /**
-     * UI检测超时是因为没有消息处理等待时间长，这种情况应该过滤掉
-     * @param arrTrace
-     * @return
-     */
-    private boolean isLoopQueueTime(StackTraceElement[] arrTrace){
-        return null != arrTrace && arrTrace.length >= 3
-                && "android.os.MessageQueue".equals(arrTrace[0].getClassName()) && "nativePollOnce".equals(arrTrace[0].getMethodName())
-                && "android.os.MessageQueue".equals(arrTrace[1].getClassName()) && "next".equals(arrTrace[1].getMethodName())
-                && "android.os.Looper".equals(arrTrace[2].getClassName()) && "loop".equals(arrTrace[2].getMethodName());
-    }
-
     public boolean getIsUiMonitoring(){
         return mIsUiMonitoring;
     }
@@ -115,10 +100,12 @@ public class UiMonitor implements Printer {
     @Override
     public void println(String logLooper) {
         if (logLooper != null && isStartLogPrint) {
-            mMonitorHandler.removeCallbacksAndMessages(null);
             mMonitorHandler.postDelayed(mUiMonitorRunnable, mMonitorTestTime);
         }
-        isStartLogPrint = !isStartLogPrint;//每次只在logPrint的start发送消息，第一次肯定是logPrint的end事件调用println
+        else{
+            mMonitorHandler.removeCallbacks(mUiMonitorRunnable);
+        }
+        isStartLogPrint = !isStartLogPrint;//每次只在logPrint的start发送消息
     }
 
 

@@ -16,5 +16,4 @@
         android:layout_below="@id/btn_uiMonitor"
         />
 
-
 </RelativeLayout>

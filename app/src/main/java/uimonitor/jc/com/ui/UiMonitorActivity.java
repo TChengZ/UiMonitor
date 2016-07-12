@@ -64,8 +64,8 @@ public class UiMonitorActivity extends AppCompatActivity implements View.OnClick
                         Toast.makeText(UiMonitorActivity.this, "最大检测时间不超过1s", Toast.LENGTH_SHORT).show();
                         return;
                     }
-                    UiMonitor.getInstance().startUiMonitor(delayTime);
                     mBtnMonitor.setText("停止检测");
+                    UiMonitor.getInstance().startUiMonitor(delayTime);
                 }
                 catch (NumberFormatException e){
                     e.printStackTrace();
